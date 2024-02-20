@@ -5,102 +5,70 @@
  * @format
  */
 
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import * as React from 'react';
+import { Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Home from './screens/home/Home';
+import Search from './screens/search/Search';
+import Saved from './screens/saved/Saved';
 
-const App = () => {
+
+const Tab = createMaterialBottomTabNavigator();
+
+function MyTabs() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Recipe4Success</Text>
-      <Text style={styles.tagline}>- Discover a world of delicious</Text>
-      <Text style={styles.title}>The ultimate source for recipes.</Text>
-      <Text style={styles.subtitle}>
-        Here you can find a wide variety of mouthwatering recipes to satisfy your taste buds.
-      </Text>
-      <TouchableOpacity style={styles.button1}>
-        <Text style={styles.buttonText1}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button2}>
-        <Text style={styles.buttonText2}>Register</Text>
-      </TouchableOpacity>
-    </View>
+    <Tab.Navigator
+      initialRouteName="Feed"
+      activeColor="#f59002"
+      inactiveColor='#0f6374'
+      barStyle={{ backgroundColor: '#f6e8d3' }} 
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, focused }) => (
+            focused ? <Image source={require('../assets/home-selected.png')} style={{ width: 20, height: 20 }} /> :
+              <Image source={require('../assets/home-unselected.png')} style={{ width: 20, height: 20 }} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarIcon: ({ color, focused }) => (
+            focused ? <Image source={require('../assets/search-selected.png')} style={{ width: 20, height: 20 }} /> :
+              <Image source={require('../assets/search-unselected.png')} style={{ width: 20, height: 20 }} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Saved"
+        component={Saved}
+        options={{
+          tabBarLabel: 'Saved',
+          tabBarIcon: ({ color, focused }) => (
+            focused ? <Image source={require('../assets/bookmark-selected.png')} style={{ width: 20, height: 20 }} /> :
+              <Image source={require('../assets/bookmark-unselected.png')} style={{ width: 20, height: 20 }} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: "flex-start",
-    backgroundColor: '#f6e8d3',
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+}
 
-    padding: 20,
-  },
-  header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#030303',
-    fontFamily: 'Sora',
-    lineHeight: 26,
-  },
-  tagline: {
-    fontSize: 16,
-    color: 'grey',
-    marginBottom: 60,
-  },
-  title: {
-    fontSize: 46,
-    fontWeight: 'bold',
-    marginBottom: 50,
-    textAlign: 'left',
-    fontFamily: 'Sora',
-  },
-  subtitle: {
-    marginBottom: 30,
-    textAlign: 'left',
-    color: 'grey',
-    fontSize: 20,
-    fontFamily: 'Rubik',
-    lineHeight: 21,
-  },
-
-  button1: {
-    padding: 15,
-    width: '100%',
-    marginBottom: 10,
-    alignItems: 'center',
-    borderRadius: 20,
-    backgroundColor: '#0f6374',
-    color: '#ffffff',
-    fontSize: 16,
-    fontFamily: 'Sora',
-  },
-  button2: {
-    padding: 15,
-    width: '100%',
-    marginBottom: 10,
-    alignItems: 'center',
-    borderStyle: 'solid',
-    borderColor: '#0f6374',
-    borderWidth: 2,
-    borderRadius: 10,
-    backgroundColor: 'rgba(143,194,204,0)',
-    color: '#0f6374',
-    fontSize: 16,
-    fontFamily: 'Sora',
-  },
-  buttonText1: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  buttonText2: {
-    color: '#0f6374',
-    fontSize: 18,
-    fontWeight: '500',
-  },
-});
-
-export default App;
