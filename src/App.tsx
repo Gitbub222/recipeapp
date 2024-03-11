@@ -1,29 +1,27 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import * as React from 'react';
 import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from './screens/home/Home';
 import Search from './screens/search/Search';
 import Saved from './screens/saved/Saved';
+import { Recipe, RootStackParamList } from './globals/types';
+import RecipeDetail from './screens/recipe-details/RecipeDetails';
+import SearchResults from './screens/search/SearchResults';
 
-
+const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createMaterialBottomTabNavigator();
+
 
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Home"
       activeColor="#f59002"
       inactiveColor='#0f6374'
-      barStyle={{ backgroundColor: '#f6e8d3' }} 
+      barStyle={{ backgroundColor: '#f6e8d3' }}
     >
       <Tab.Screen
         name="Home"
@@ -66,7 +64,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <MyTabs />
+        <Stack.Navigator>
+          <Stack.Screen name="Main" component={MyTabs} options={{ headerShown: false }} />
+          <Stack.Screen name="RecipeDetail" component={RecipeDetail}   options={{ headerShown: false }}/>
+          <Stack.Screen name="SearchResults" component={SearchResults}   options={{ headerShown: false }}/>
+        </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
