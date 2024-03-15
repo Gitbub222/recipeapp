@@ -10,10 +10,10 @@ import Saved from './screens/saved/Saved';
 import { Recipe, RootStackParamList } from './globals/types';
 import RecipeDetail from './screens/recipe-details/RecipeDetails';
 import SearchResults from './screens/search/SearchResults';
+import Welcome from './screens/welcome/Welcome';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createMaterialBottomTabNavigator();
-
 
 function MyTabs() {
   return (
@@ -64,7 +64,8 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
           <Stack.Screen name="Main" component={MyTabs} options={{ headerShown: false }} />
           <Stack.Screen name="RecipeDetail" component={RecipeDetail}   options={{ headerShown: false }}/>
           <Stack.Screen name="SearchResults" component={SearchResults}   options={{ headerShown: false }}/>

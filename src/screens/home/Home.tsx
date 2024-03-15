@@ -1,12 +1,25 @@
-import * as React from 'react';
-import { Text, View, Image } from 'react-native';
+import React from 'react';
+import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 
-function Home() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f6e8d3' }}>
-        <Text>Home!</Text>
+const Home = () => {
+  return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Home</Text>
       </View>
-    );
-  }
+  );
+};
 
-  export default Home;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f6e8d3',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: 'black',
+    fontSize: 24,
+  },
+});
+
+export default Home;
