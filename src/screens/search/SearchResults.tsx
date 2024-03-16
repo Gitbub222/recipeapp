@@ -39,7 +39,7 @@ const SearchResults = () => {
     const handlePress = () => {
         navigation.navigate('RecipeDetail', { recipe: recipeData });
     }
-    const data = [
+    const searchRecipes = [
         { id: '1', title: 'Burger', description: 'Description 1', imageUrl: 'https://source.unsplash.com/400x300/?burger' },
         { id: '2', title: 'Pizza', description: 'Description 2', imageUrl: 'https://source.unsplash.com/400x300/?pizza' },
         { id: '3', title: 'Sushi', description: 'Description 3', imageUrl: 'https://source.unsplash.com/400x300/?sushi' },
@@ -64,7 +64,7 @@ const SearchResults = () => {
             <Text style={{ fontSize: 24, fontWeight: 'bold', marginTop: 65, marginBottom: 20, alignSelf: "center" }}>Search Results</Text>
 
             <FlatList
-                data={data}
+                data={searchRecipes}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 numColumns={1}

@@ -41,7 +41,7 @@ const CustomInput = ({ placeholder, ...rest }: any) => {
 
 const Search = () => {
   const navigation = useNavigation<SearchScreenNavigationProp>();
-  const handlePress = () => {
+  const handleSearch = () => {
     navigation.navigate('SearchResults', { recipes: data });
   }
   const { height } = useWindowDimensions();
@@ -84,7 +84,7 @@ const Search = () => {
           <Text style={styles.buttonText}>Add Ingredient</Text>
         </TouchableOpacity>
         <IngredientChips />
-        <TouchableOpacity disabled={ingredientsList.length == 0} onPress={handlePress} style={[styles.searchButton,
+        <TouchableOpacity disabled={ingredientsList.length == 0} onPress={handleSearch} style={[styles.searchButton,
         { backgroundColor: ingredientsList.length == 0 ? 'grey' : '#0f6374' },
         { top: Math.round(height * .7) }]}>
           <Text style={styles.searchButtonText}>Search</Text>
