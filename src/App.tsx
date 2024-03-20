@@ -13,6 +13,8 @@ import SearchResults from './screens/search/SearchResults';
 import Welcome from './screens/welcome/Welcome';
 import SignUp from './screens/sign-up/SignUp';
 import Login from './screens/login/Login';
+import Access from './screens/access/Access';
+import Verify from './screens/forgot-password/Verify';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createMaterialBottomTabNavigator();
@@ -68,9 +70,11 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
-          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="Main" component={MyTabs} options={{ headerShown: false }} />
+            <Stack.Screen name="Access" component={Access} options={{ headerShown: true }} />
+          <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: true }} />
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: true }} />
+          <Stack.Screen name="Verify" component={Verify} options={{ headerShown: true }} />
+          <Stack.Screen name="Main" component={MyTabs} options={{ headerShown: true }} />
           <Stack.Screen name="RecipeDetail" component={RecipeDetail}   options={{ headerShown: false }}/>
           <Stack.Screen name="SearchResults" component={SearchResults}   options={{ headerShown: false }}/>
         </Stack.Navigator>

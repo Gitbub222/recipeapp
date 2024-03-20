@@ -14,6 +14,7 @@ const SignUp = ({ navigation }: any) => {
     }
     // implement logic for processing sign up here
     Alert.alert('Credentials', `Email: ${email} Password: ${password}`);
+    navigation.navigate('Main');
   };
 
   return (

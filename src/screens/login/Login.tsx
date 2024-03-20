@@ -13,6 +13,7 @@ const Login = ({ navigation }: any) => {
     }
     // implement logic for processing login here
     Alert.alert('Credentials', `Email: ${email} Password: ${password}`);
+    navigation.navigate('Main');
   };
 
   const handleRememberMe = () => {
@@ -46,7 +47,7 @@ const Login = ({ navigation }: any) => {
             {rememberMe ? <View style={{ flex: 1, backgroundColor: 'black' }} /> : null}
         </TouchableOpacity>
         <Text style={styles.checkboxText}>Remember me</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Verify')}>
             <Text style={[styles.checkboxText, { color: '#007bff' }]}> Forgot password?</Text>
         </TouchableOpacity>
       </View>

@@ -9,7 +9,7 @@ const Welcome = ({ navigation }: any) => {
     >
       <View style={styles.container}>
         <Text style={styles.text}>Recipe for Success</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Access')} style={styles.buttonContainer}>
           <Image
             source={require('../../../assets/next_button.png')} // Replace 'your-button-image.png' with your image path
             style={styles.buttonImage}
