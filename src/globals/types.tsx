@@ -15,6 +15,9 @@ export interface Recipe {
   
 
   export type RootStackParamList = {
+    Welcome: undefined;
+    SignUp: undefined;
+    Login: undefined;
     Saved: undefined;
     Search: undefined;
     Main: undefined;

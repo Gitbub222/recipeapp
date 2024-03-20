@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ImageBackground, StyleSheet, TextInput, Alert, TouchableOpacity } from 'react-native';
 
-const SignUp = ({ navigation }) => {
+const SignUp = ({ navigation }: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');

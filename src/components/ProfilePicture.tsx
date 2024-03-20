@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ImageBackground, StyleSheet } from 'react-native';
 
-const ProfilePicture = ({ uri }) => {
+const ProfilePicture = ({ uri }: { uri: string }) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   imageStyle: {
-      borderRadius: 50,
+    borderRadius: 50,
   },
 });

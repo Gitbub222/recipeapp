@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const Welcome = ({ navigation }) => {
+const Welcome = ({ navigation }: any) => {
   return (
     <ImageBackground
       source={require('../../../assets/Explore-our-delicious-recipes2.png')}
